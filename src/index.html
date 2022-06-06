@@ -3,10 +3,247 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello World!</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script defer src="bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="index.css" />
+
+    <script>
+      function draw() {
+        var canvas = document.getElementById('plano');
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+
+          // Triángulo rellenado
+          ctx.beginPath();
+          ctx.moveTo(25,25);
+          ctx.lineTo(105,25);
+          ctx.lineTo(25,105);
+          ctx.fill();
+
+          // Triángulo contorneado
+          ctx.beginPath();
+          ctx.moveTo(125,125);
+          ctx.lineTo(125,45);
+          ctx.lineTo(45,125);
+          ctx.closePath();
+          ctx.stroke();
+        }
+      }
+    </script>
+
   </head>
-  <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+  <body onload="draw()">
+    <br>
+    <br>
+
+    <div class="container">
+
+      <div class="row justify-content-center align-items-center">
+    
+         <!-- Input -->
+        <div class="col justify-content-center ajustar">
+          
+          <table class="table table-hover table-borderless table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Punto N° </th>
+                <th scope="col">Coordenada X</th>
+                <th scope="col">Coordenada Y</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">11</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">12</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">13</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">14</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">15</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">16</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">17</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">18</th>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+                <td>
+                  <Input class="form-text" type="number"></Input>
+                </td>
+              </tr>
+            </tbody>
+          </table> 
+          
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button">Calcular</button>
+            <button class="btn btn-outlined-primary" type="button">Limpiar</button>
+          </div>
+          <br>
+
+        </div>
+
+         <!-- Output -->
+        <div class="col justify-content-center ajustar">
+          
+          <!-- <img src="s7num.PNG" width="500" height="500" alt="Figura"> -->
+          <canvas id="plano" width="500" height="500"></canvas>
+
+          <ul class="list-group">
+            <li class="list-group-item">Momento de inercia en X: </li>
+            <li class="list-group-item">Momento de inercia en Y: </li>
+            <li class="list-group-item">Centroide en X: </li>
+            <li class="list-group-item">Centroide en Y: </li>
+          </ul>
+
+        </div>
+     
+      </div>
+    </div>
+
+    <br>
+    <br>
   </body>
 </html>
