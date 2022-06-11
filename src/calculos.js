@@ -9,7 +9,7 @@ function igualar(inputA,inputB){
 
 }
 
-console.warn("Los campos se ajustarán automáticamente para mantener las proporciones.");
+console.info("Los campos se ajustarán automáticamente para mantener las proporciones.");
 
 const p1x = document.querySelector("#P1x");
 const p1y = document.querySelector("#P1y");
@@ -185,11 +185,29 @@ limpiar.addEventListener("click", (event)=>{
 
 */
 
+
+const miX = document.querySelector("#miX");
+const miY = document.querySelector("#miY");
+const centroideX = document.querySelector("#centroideX");
+const centroideY = document.querySelector("#centroideY");
+
+function responder(momentoInerciaX,momentoInerciaY,cX,cY){
+    miX.innerHTML += ` ${momentoInerciaX} cm4`;
+    miY.innerHTML += ` ${momentoInerciaY} cm4`;
+    centroideX.innerHTML += ` ${cX} cm`;;
+    centroideY.innerHTML += ` ${cY} cm`;
+
+}
+
+
 // Cálculo
 
 const calcular = document.querySelector("#btnCalcular");
 calcular.addEventListener("click", (event)=>{ 
+    
     console.info("Trabajo en proceso");
+    responder("Calculado","Calculado","Calculado","Calculado");
+
 }, false);
 
 
