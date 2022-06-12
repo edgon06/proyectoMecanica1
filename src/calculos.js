@@ -1,6 +1,10 @@
+/* Integrantes: 
+    Edwin González      8-940-1565
+    Christian Pinzón    8-929-1046
+*/
+
 
 /* Entrada de datos */
-// console.info("Algunos campos se ajustarán automáticamente para mantener las proporciones.");
 
 /*
     Referencias a elementos de la interfaz gráfica
@@ -201,42 +205,37 @@ function responder(cX,cY,momentoInerciaX,momentoInerciaY){
 /*      Dibujar sección completa     */
 
 function dibujar() {
-    var canvas = document.getElementById('plano');
+    const canvas = document.getElementById('plano');
     if (canvas.getContext){
-      var ctx = canvas.getContext('2d');
+      let ctx = canvas.getContext('2d');
 
         let espacioInicial = 100;
         let proporcion = 20;
 
       // Sección rellenada 
       ctx.beginPath();
-     
-      ctx.lineTo(espacioInicial + p2x.value*proporcion,p2y.value*proporcion);
-      ctx.lineTo(espacioInicial + p3x.value*proporcion,p3y.value*proporcion);
-      ctx.lineTo(espacioInicial + p4x.value*proporcion,p4y.value*proporcion);
-      ctx.lineTo(espacioInicial + p5x.value*proporcion,p5y.value*proporcion);
-      ctx.lineTo(espacioInicial + p6x.value*proporcion,p6y.value*proporcion);
-      ctx.lineTo(espacioInicial + p7x.value*proporcion,p7y.value*proporcion);
-      ctx.lineTo(espacioInicial + p8x.value*proporcion,p8y.value*proporcion);
-      ctx.lineTo(espacioInicial + p9x.value*proporcion,p9y.value*proporcion);
-      ctx.lineTo(espacioInicial + p10x.value*proporcion,p10y.value*proporcion);
-      ctx.lineTo(espacioInicial + p11x.value*proporcion,p11y.value*proporcion);
-      ctx.lineTo(espacioInicial + p12x.value*proporcion,p12y.value*proporcion);
-      ctx.lineTo(espacioInicial + p13x.value*proporcion,p13y.value*proporcion);
-      ctx.lineTo(espacioInicial + p14x.value*proporcion,p14y.value*proporcion);
-      ctx.lineTo(espacioInicial + p15x.value*proporcion,p15y.value*proporcion);
-      ctx.lineTo(espacioInicial + p16x.value*proporcion,p16y.value*proporcion);
-      ctx.lineTo(espacioInicial + p17x.value*proporcion,p17y.value*proporcion);
-      ctx.lineTo(espacioInicial + p18x.value*proporcion,p18y.value*proporcion);
+      ctx.fillStyle = "#808080"; 
+      
+      ctx.lineTo(espacioInicial + (p2x.value*proporcion), 500- p2y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p3x.value*proporcion), 500- p3y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p4x.value*proporcion), 500- p4y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p5x.value*proporcion), 500- p5y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p6x.value*proporcion), 500- p6y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p7x.value*proporcion), 500- p7y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p8x.value*proporcion), 500- p8y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p9x.value*proporcion), 500- p9y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p10x.value*proporcion), 500- p10y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p11x.value*proporcion), 500- p11y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p12x.value*proporcion), 500- p12y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p13x.value*proporcion), 500- p13y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p14x.value*proporcion), 500- p14y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p15x.value*proporcion), 500- p15y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p16x.value*proporcion), 500- p16y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p17x.value*proporcion), 500- p17y.value*proporcion);
+      ctx.lineTo(espacioInicial + (p18x.value*proporcion), 500- p18y.value*proporcion);
       
       ctx.fill();
-
-    
       ctx.closePath();
-
-      // Dibujar centroide
-     
-      
 
     //   // Ejemplo de Triángulo contorneado
     //   ctx.beginPath();
@@ -248,22 +247,24 @@ function dibujar() {
     }
   }
 
-    function dibujarCentroide(forma_compuesta){
-        var canvas = document.getElementById('plano');
+  /*      Dibujar un centroide     */
+    function dibujarCentroide(x,y){
+        const canvas = document.getElementById('plano');
         if (canvas.getContext){
-        var ctx = canvas.getContext('2d');
+        let ctx = canvas.getContext('2d');
 
             let espacioInicial = 100;
             let proporcion = 20;
-
-            let punto = 50*proporcion; // Cambia el tamaño del punto
-            ctx.fillStyle = "#ff2626"; // Color rojo
-            ctx.beginPath(); // Iniciar trazo
-            ctx.arc(espacioInicial + forma_compuesta.cX*proporcion, forma_compuesta.cY*proporcion, punto, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
-            ctx.fill(); // Terminar trazo
-            console.log("Centroide dibujado");
+            let punto = 5;              // Cambia el tamaño del punto
+            ctx.fillStyle = "#ff2626";  // Color rojo
+            ctx.beginPath();            // Iniciar trazo
+            //ctx.lineTo(espacioInicial + x*proporcion,y*proporcion);
+            ctx.arc(espacioInicial + (x*proporcion),500- y*proporcion, punto, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
+            ctx.fill();                 // Terminar trazo
+          
         }
     }
+
 /* ----------------------------------------------------------------------------------------------------------*/
 
 /*      Resolución del problema     */
@@ -432,8 +433,6 @@ function calcularCentroideX(formas){
     formas.forEach(forma => {
         xiAi += forma.cx*forma.area;
         Ai += forma.area;
-    //   console.info("el calculo de xiAi va por: " + xiAi);
-    //   console.info("el calculo de Ai va por: " + Ai);
     });
     return xiAi/Ai; 
 }
@@ -444,8 +443,6 @@ function calcularCentroideY(formas){
     formas.forEach(forma => {
         yiAi += forma.cy*forma.area;
         Ai += forma.area;
-    //   console.info("el calculo de yiAi va por: " + yiAi);
-    //   console.info("el calculo de Ai va por: " + Ai);
     });
     return yiAi/Ai; 
 }
@@ -460,7 +457,7 @@ function calcularCentroideY(formas){
         let Ix = 0;
         formas.forEach(forma => {
             Ix += forma.mix + (Math.pow(Math.abs(forma.cy-forma_compuesta.cy),2)*forma.area);
-    });
+        });
         return Ix; 
     }
 
@@ -468,7 +465,7 @@ function calcularCentroideY(formas){
         let Iy = 0;
         formas.forEach(forma => {
             Iy += forma.mix + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area);
-    });
+        });
         return Iy; 
     }
 
@@ -484,7 +481,7 @@ let forma_compuesta = {
     
     responder(forma_compuesta.cx.toFixed(2), forma_compuesta.cy.toFixed(2), forma_compuesta.mix.toFixed(2), forma_compuesta.miy.toFixed(2));
     dibujar();
-    dibujarCentroide(forma_compuesta);
+    dibujarCentroide(forma_compuesta.cx,forma_compuesta.cy);
 
 }, false);
 
