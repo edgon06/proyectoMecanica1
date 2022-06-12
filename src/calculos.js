@@ -208,7 +208,7 @@ function dibujar() {
         let espacioInicial = 100;
         let proporcion = 20;
 
-      // Triángulo rellenado
+      // Sección rellenada 
       ctx.beginPath();
      
       ctx.lineTo(espacioInicial + p2x.value*proporcion,p2y.value*proporcion);
@@ -231,7 +231,7 @@ function dibujar() {
       
       ctx.fill();
 
-    //   // Triángulo contorneado
+    //   // Ejemplo de Triángulo contorneado
     //   ctx.beginPath();
     //   ctx.moveTo(125,125);
     //   ctx.lineTo(125,45);
@@ -242,6 +242,8 @@ function dibujar() {
   }
 
 /* ----------------------------------------------------------------------------------------------------------*/
+
+/*      Resolución del problema     */
 
 /*      Funciones auxiliares        */
 
@@ -279,6 +281,16 @@ let tw = distancia(p1x.value,0,p7x.value,0);
 let tf = distancia(p7x.value,0,p7x.value,p7y.value);
 let m = distancia(p5x.value,p5y.value,p4x.value,p5y.value);
 let n = distancia(p4x.value,p5y.value,p4x.value,p4y.value);
+
+console.warn("Valores de Distancias:")
+console.table({
+    h:h,
+    b:b,
+    tw:tw,
+    tf:tf,
+    m:m,
+    n:n
+});
 
 /*    Formas simples    */
 
