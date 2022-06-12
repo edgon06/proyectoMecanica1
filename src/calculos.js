@@ -231,6 +231,13 @@ function dibujar() {
       
       ctx.fill();
 
+    
+      ctx.closePath();
+
+      // Dibujar centroide
+     
+      
+
     //   // Ejemplo de Triángulo contorneado
     //   ctx.beginPath();
     //   ctx.moveTo(125,125);
@@ -241,6 +248,22 @@ function dibujar() {
     }
   }
 
+    function dibujarCentroide(forma_compuesta){
+        var canvas = document.getElementById('plano');
+        if (canvas.getContext){
+        var ctx = canvas.getContext('2d');
+
+            let espacioInicial = 100;
+            let proporcion = 20;
+
+            let punto = 50*proporcion; // Cambia el tamaño del punto
+            ctx.fillStyle = "#ff2626"; // Color rojo
+            ctx.beginPath(); // Iniciar trazo
+            ctx.arc(espacioInicial + forma_compuesta.cX*proporcion, forma_compuesta.cY*proporcion, punto, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
+            ctx.fill(); // Terminar trazo
+            console.log("Centroide dibujado");
+        }
+    }
 /* ----------------------------------------------------------------------------------------------------------*/
 
 /*      Resolución del problema     */
@@ -282,7 +305,7 @@ let tf = distancia(p7x.value,0,p7x.value,p7y.value);
 let m = distancia(p5x.value,p5y.value,p4x.value,p5y.value);
 let n = distancia(p4x.value,p5y.value,p4x.value,p4y.value);
 
-console.warn("Valores de Distancias:")
+console.info("Valores de Distancias:")
 console.table({
     h:h,
     b:b,
@@ -400,7 +423,7 @@ let formas_simples = [
 
 /* Calcular centroide total de la forma compuesta */
 
-console.warn("Datos de Formas Simples:")
+console.info("Datos de Formas Simples:")
 console.table(formas_simples);
 
 function calcularCentroideX(formas){
@@ -427,6 +450,27 @@ function calcularCentroideY(formas){
     return yiAi/Ai; 
 }
 
+/*
+    calcular momento de inerciax:
+    // forma_compuesta.mix = Ix1 + Ix2 + Ix3 + Ix4 + Ix5 + Ix6 + Ix7 + Ix8 + Ix9 + Ix10;
+    // Ix1 = formas_simple[0].mix + (Math.pow(Math.abs(formas_simple[0].cy-forma_compuesta.cy),2)*formas_simple[0].area); 
+*/
+
+    function calcularMIX(formas){ 
+        let Ix = 0;
+        formas.forEach(forma => {
+            Ix += forma.mix + (Math.pow(Math.abs(forma.cy-forma_compuesta.cy),2)*forma.area);
+    });
+        return Ix; 
+    }
+
+    function calcularMIY(formas){ 
+        let Iy = 0;
+        formas.forEach(forma => {
+            Iy += forma.mix + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area);
+    });
+        return Iy; 
+    }
 
 let forma_compuesta = {
     cx: calcularCentroideX(formas_simples),
@@ -435,8 +479,12 @@ let forma_compuesta = {
     miy: 0, // coming soon
 };
 
+    forma_compuesta.mix = calcularMIX(formas_simples);
+    forma_compuesta.miy = calcularMIY(formas_simples);
+    
+    responder(forma_compuesta.cx.toFixed(2), forma_compuesta.cy.toFixed(2), forma_compuesta.mix.toFixed(2), forma_compuesta.miy.toFixed(2));
     dibujar();
-    responder(forma_compuesta.cx, forma_compuesta.cy, forma_compuesta.mix, forma_compuesta.miy);
+    dibujarCentroide(forma_compuesta);
 
 }, false);
 
