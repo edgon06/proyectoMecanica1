@@ -1,6 +1,6 @@
 
 /* Entrada de datos */
-console.info("Los campos se ajustarán automáticamente para mantener las proporciones.");
+// console.info("Algunos campos se ajustarán automáticamente para mantener las proporciones.");
 
 /*
     Referencias a elementos de la interfaz gráfica
@@ -61,9 +61,7 @@ const p18x = document.querySelector("#P18x");
 const p18y = document.querySelector("#P18y");
 
 
-/*
-    Eventos para asistencia al introducir datos para mantener la proporción
-*/
+/*    Eventos para asistencia al introducir datos para mantener la proporción   */
 
 /*
 
@@ -89,7 +87,7 @@ function igualar(inputA,inputB){
     inputB.value = inputA.value;
 }
 
-//Evento cuando elemento pierde el focus: focusout
+//  Evento cuando elemento pierde el focus: focusout
 
 p1x.addEventListener("focusout", (event)=>{ 
     igualar(p1x,p18x);
@@ -101,8 +99,6 @@ p1y.addEventListener("focusout", (event)=>{
     igualar(p1y,p17y);
     }, false);
 
-// p2x.addEventListener("focusout", (event)=>{ 
-//     igualar(p2x,p1x);}, false);
 p2y.addEventListener("focusout", (event)=>{ 
     igualar(p2y,p3y);
     igualar(p2y,p15y);
@@ -140,7 +136,6 @@ p11x.addEventListener("focusout", (event)=>{
 
 p16x.addEventListener("focusout", (event)=>{ 
         igualar(p16x,p17x);}, false);
-
 
         
 const limpiar = document.querySelector("#btnLimpiar");
@@ -190,7 +185,6 @@ limpiar.addEventListener("click", (event)=>{
             limpiarInputs();
         }, false);
 
-
 const miX = document.querySelector("#miX");
 const miY = document.querySelector("#miY");
 const centroideX = document.querySelector("#centroideX");
@@ -204,9 +198,52 @@ function responder(cX,cY,momentoInerciaX,momentoInerciaY){
 
 }
 
+/*      Dibujar sección completa     */
+
+function dibujar() {
+    var canvas = document.getElementById('plano');
+    if (canvas.getContext){
+      var ctx = canvas.getContext('2d');
+
+        let espacioInicial = 100;
+        let proporcion = 20;
+
+      // Triángulo rellenado
+      ctx.beginPath();
+     
+      ctx.lineTo(espacioInicial + p2x.value*proporcion,p2y.value*proporcion);
+      ctx.lineTo(espacioInicial + p3x.value*proporcion,p3y.value*proporcion);
+      ctx.lineTo(espacioInicial + p4x.value*proporcion,p4y.value*proporcion);
+      ctx.lineTo(espacioInicial + p5x.value*proporcion,p5y.value*proporcion);
+      ctx.lineTo(espacioInicial + p6x.value*proporcion,p6y.value*proporcion);
+      ctx.lineTo(espacioInicial + p7x.value*proporcion,p7y.value*proporcion);
+      ctx.lineTo(espacioInicial + p8x.value*proporcion,p8y.value*proporcion);
+      ctx.lineTo(espacioInicial + p9x.value*proporcion,p9y.value*proporcion);
+      ctx.lineTo(espacioInicial + p10x.value*proporcion,p10y.value*proporcion);
+      ctx.lineTo(espacioInicial + p11x.value*proporcion,p11y.value*proporcion);
+      ctx.lineTo(espacioInicial + p12x.value*proporcion,p12y.value*proporcion);
+      ctx.lineTo(espacioInicial + p13x.value*proporcion,p13y.value*proporcion);
+      ctx.lineTo(espacioInicial + p14x.value*proporcion,p14y.value*proporcion);
+      ctx.lineTo(espacioInicial + p15x.value*proporcion,p15y.value*proporcion);
+      ctx.lineTo(espacioInicial + p16x.value*proporcion,p16y.value*proporcion);
+      ctx.lineTo(espacioInicial + p17x.value*proporcion,p17y.value*proporcion);
+      ctx.lineTo(espacioInicial + p18x.value*proporcion,p18y.value*proporcion);
+      
+      ctx.fill();
+
+    //   // Triángulo contorneado
+    //   ctx.beginPath();
+    //   ctx.moveTo(125,125);
+    //   ctx.lineTo(125,45);
+    //   ctx.lineTo(45,125);
+    //   ctx.closePath();
+    //   ctx.stroke();
+    }
+  }
+
 /* ----------------------------------------------------------------------------------------------------------*/
 
-/* Funciones auxiliares */
+/*      Funciones auxiliares        */
 
 function distancia(x1,y1,x2,y2){
     return Math.sqrt((Math.pow(x2-x1,2)+Math.pow(y2-y1,2)));
@@ -228,7 +265,7 @@ function miYTriangulo(base,altura){
     return (1/36)*Math.pow(base,3)*altura;
 }
 
-/* Llamada al cálculo final */
+/*      Llamada al cálculo final    */
 
 const calcular = document.querySelector("#btnCalcular");
 calcular.addEventListener("click", (event)=>{ 
@@ -258,94 +295,94 @@ let formas_simples = [
     },
     // Forma 2
     {
-        base: b-tw,
+        base: Math.abs(b-tw) ,
         altura: tf,
-        area : this.base * this.altura,
-        cx: tw + this.base/2,
-        cy: (h-tf) + this.altura/2,
-        mix: miXRectangulo(this.base,this.altura),
-        miy: miYRectangulo(this.base,this.altura)
+        area : Math.abs(b-tw) * tf,
+        cx: tw + Math.abs(b-tw)/2,
+        cy: Math.abs(h-tf) + (tf)/2,
+        mix: miXRectangulo(Math.abs(b-tw),tf),
+        miy: miYRectangulo(Math.abs(b-tw),tf)
     },
     // Forma 3
     {
         base: m,
         altura: n,
-        area : (this.base * this.altura)/2,
-        cx: (b-m) + (2*this.base)/3,
-        cy: (h-tf) - this.altura/3,
-        mix: miXTriangulo(this.base,this.altura),
-        miy: miYTriangulo(this.base,this.altura)
+        area : (m * n)/2,
+        cx: Math.abs(b-m) + (2*m)/3,
+        cy: Math.abs(h-tf) - n/3,
+        mix: miXTriangulo(m,n),
+        miy: miYTriangulo(m,n)
     },
     // Forma 4
     {
         base: m,
         altura: n,
-        area : (this.base * this.altura)/2,
-        cx: b + (this.base)/3,
-        cy: (h-tf) - this.altura/3,
-        mix: miXTriangulo(this.base,this.altura),
-        miy: miYTriangulo(this.base,this.altura)
+        area : (m * n)/2,
+        cx: b + (m)/3,
+        cy: Math.abs(h-tf) - n/3,
+        mix: miXTriangulo(m,n),
+        miy: miYTriangulo(m,n)
     },
     // Forma 5
     {
         base: b-tw,
         altura: tf,
-        area : this.base * this.altura,
-        cx: b  + (this.base/2),
-        cy: (h-tf) + this.altura/2,
-        mix: miXRectangulo(this.base,this.altura),
-        miy: miYRectangulo(this.base,this.altura)
+        area : Math.abs(b-tw)* (tf),
+        cx: b  + (Math.abs(b-tw)/2),
+        cy: Math.abs(h-tf) + (tf)/2,
+        mix: miXRectangulo(Math.abs(b-tw),tf),
+        miy: miYRectangulo(Math.abs(b-tw),tf)
     },
 
     // Forma 6
     {
         base: tw,
         altura: h,
-        area : this.base * this.altura,
-        cx: ((2*b) -tw )+ (this.base/2),
-        cy:  this.altura/2,
-        mix: miXRectangulo(this.base,this.altura),
-        miy: miYRectangulo(this.base,this.altura)
+        area : tw * h,
+        cx: Math.abs((2*b) -tw )+ (tw/2),
+        cy:  h/2,
+        mix: miXRectangulo(tw,h),
+        miy: miYRectangulo(tw,h)
     },
     // Forma 7
     {
-        base: b-tw,
+        base: Math.abs(b-tw),
         altura: tf,
-        area : this.base * this.altura,
-        cx: b  + (this.base/2),
-        cy: this.altura/2,
-        mix: miXRectangulo(this.base,this.altura),
-        miy: miYRectangulo(this.base,this.altura)
+        area : Math.abs(b-tw) * tf,
+        cx: b  + (Math.abs(b-tw)/2),
+        cy: tf/2,
+        mix: miXRectangulo(Math.abs(b-tw),tf),
+        miy: miYRectangulo(Math.abs(b-tw),tf)
     },
     // Forma 8
     {
         base: m,
         altura: n,
-        area : (this.base * this.altura)/2,
-        cx: b + (this.base)/3,
-        cy: tf + this.altura/3,
-        mix: miXTriangulo(this.base,this.altura),
-        miy: miYTriangulo(this.base,this.altura)
+        area : (m * n)/2,
+        cx: b + (m)/3,
+        cy: tf + (n)/3,
+        mix: miXTriangulo(m,n),
+        miy: miYTriangulo(m,n)
     },
     // Forma 9
     {
         base: m,
         altura: n,
-        area : (this.base * this.altura)/2,
-        cx: (b-m) + (2*this.base)/3,
-        cy: (h-tf) - this.altura/3,
-        mix: miXTriangulo(this.base,this.altura),
-        miy: miYTriangulo(this.base,this.altura)
+        area : (m* n)/2,
+        cx: Math.abs(b-m) + (2*m)/3,
+        cy: Math.abs(h-tf) - n/3,
+        mix: miXTriangulo(m,n),
+        miy: miYTriangulo(m,n)
     },  
     // Forma 10
     {
-        base: b-tw,
+        base: Math.abs(b-tw),
         altura: tf,
-        area : this.base * this.altura,
-        cx: tw + this.base/2,
-        cy: (h-tf) + this.altura/2,
-        mix: miXRectangulo(this.base,this.altura),
-        miy: miYRectangulo(this.base,this.altura)
+        area : Math.abs(b-tw) * tf,
+        cx: tw + Math.abs(b-tw)/2,
+        cy: Math.abs(h-tf) + tf/2,
+        mix: miXRectangulo(Math.abs(b-tw),tf),
+        miy: miYRectangulo(Math.abs(b-tw),tf)
     }
 ];
 
@@ -360,8 +397,8 @@ function calcularCentroideX(formas){
     formas.forEach(forma => {
         xiAi += forma.cx*forma.area;
         Ai += forma.area;
-    //  console.info("el calculo de xiAi va por: " + xiAi);
-    //  console.info("el calculo de Ai va por: " + Ai);
+    //   console.info("el calculo de xiAi va por: " + xiAi);
+    //   console.info("el calculo de Ai va por: " + Ai);
     });
     return xiAi/Ai; 
 }
@@ -372,8 +409,8 @@ function calcularCentroideY(formas){
     formas.forEach(forma => {
         yiAi += forma.cy*forma.area;
         Ai += forma.area;
-    //  console.info("el calculo de yiAi va por: " + yiAi);
-    //  console.info("el calculo de Ai va por: " + Ai);
+    //   console.info("el calculo de yiAi va por: " + yiAi);
+    //   console.info("el calculo de Ai va por: " + Ai);
     });
     return yiAi/Ai; 
 }
@@ -386,21 +423,10 @@ let forma_compuesta = {
     miy: 0, // coming soon
 };
 
+    dibujar();
     responder(forma_compuesta.cx, forma_compuesta.cy, forma_compuesta.mix, forma_compuesta.miy);
 
 }, false);
-
-
-
-
-
-
-
-
-
-
-
-
 
 function valoresDePrueba(){
 
@@ -443,19 +469,3 @@ function valoresDePrueba(){
 
     console.info("Listo para probar");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
