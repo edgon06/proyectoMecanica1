@@ -1,6 +1,12 @@
-/* Integrantes: 
-    Edwin González      8-940-1565
-    Christian Pinzón    8-929-1046
+/* 
+    Proyecto Grupal #1
+    
+    Cálculo de centroides y momentos de inercia: caso #7
+
+    Integrantes: 
+        Edwin González      8-940-1565
+        Christian Pinzón    8-929-1046
+
 */
 
 
