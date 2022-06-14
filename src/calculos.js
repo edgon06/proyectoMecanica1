@@ -189,6 +189,11 @@ function limpiarInputs(){
     p18x.value = null;
     p18y.value = null;
 
+    const canvas = document.getElementById('plano');
+    if (canvas.getContext){
+      let ctx = canvas.getContext('2d');
+    ctx.clearRect(0,0,500,500)
+    }
 }
 
 limpiar.addEventListener("click", (event)=>{ 
