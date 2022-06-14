@@ -417,7 +417,7 @@ let formas_simples = [
         altura: n,
         area : (m* n)/2,
         cx: Math.abs(b-m) + (2*m)/3,
-        cy: Math.abs(h-tf) - n/3,
+        cy: Math.abs(tf) + n/3,
         mix: miXTriangulo(m,n),
         miy: miYTriangulo(m,n)
     },  
@@ -426,8 +426,8 @@ let formas_simples = [
         base: Math.abs(b-tw),
         altura: tf,
         area : Math.abs(b-tw) * tf,
-        cx: tw + Math.abs(b-tw)/2,
-        cy: Math.abs(h-tf) + tf/2,
+        cx: Math.abs(b-tw)/2,
+        cy: tf/2,
         mix: miXRectangulo(Math.abs(b-tw),tf),
         miy: miYRectangulo(Math.abs(b-tw),tf)
     }
