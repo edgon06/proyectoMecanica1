@@ -94,66 +94,294 @@ const p18y = document.querySelector("#P18y");
 */
 
 function igualar(inputA,inputB){
-    inputB.value = inputA.value;
+    if(inputA.value!=null && inputA.value!=undefined && inputA.value!= NaN){
+        inputB.value = inputA.value;
+    }else
+    {
+        inputA.value = inputB.value;
+    }   
 }
+
+function asignarValor(input, valor){
+    input.value = valor;
+}
+
+
+// Establecer que inicie en el origen
+p1x.value = 0;
+p1y.value = 0;
+igualar(p1x,p18x);
+igualar(p1y,p18y);
+igualar(p1x,p2x);
+igualar(p1y,p17y);
+
+        /* Distancias nombradas */
+
+        let h;  // = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
+        let b;  // = h/2;    //distancia(p2x.value,p2y.value,p3x.value,p3y.value);
+        let tw; // = distancia(p1x.value,0,p6x.value,0);
+        let tf; // = distancia(0,p2y.value,0,p5y.value);
+        let m;  // = distancia(b,0,p5x.value,0);
+        let n;  // = distancia(0,p5y.value,0,p4y.value);
+
+        /*
+        p1y.addEventListener("focusout", (event)=>{ 
+            if(p2x.value!= null && p2y.value!= null){
+                p2x.disabled = false;
+                p2y.disabled = false;
+            }
+
+        }, false);
+
+        p2y.addEventListener("change", (event)=>{ 
+            if(p2x.value!= null && p2y.value!= null){
+                p3x.disabled = false;
+                p3y.disabled = false;
+                p4x.disabled = false;
+                p4y.disabled = false;
+            }
+          
+        }, false);
+
+        p3y.addEventListener("focusout", (event)=>{ 
+            if(p3x.value!= null && p3y.value!= null){
+                p4x.disabled = false;
+                p4y.disabled = false;
+            }
+            
+        }, false);
+
+        p4y.addEventListener("change", (event)=>{ 
+            if(p4x.value!= null && p4y.value!= null){
+                p5x.disabled = false;
+                p5y.disabled = false;
+            }
+            
+        }, false);
+   
+        p5y.addEventListener("change", (event)=>{ 
+            if(p5x.value!= undefined && p5y.value!= undefined){
+                p6x.disabled = false;
+                p6y.disabled = false;
+            }
+        }, false);
+
+        p6x.addEventListener("change", (event)=>{ 
+            if(p6x.value!= undefined && p6y.value!= undefined){
+                p7x.disabled = false;
+                p7y.disabled = false;
+            }
+            
+        }, false);
+    
+        p7y.addEventListener("focusout", (event)=>{ 
+            p8x.disabled = false;
+            p8y.disabled = false;
+        }, false);
+
+        p8y.addEventListener("focusout", (event)=>{ 
+            p9x.disabled = false;
+            p9y.disabled = false;
+        }, false);
+
+        p9y.addEventListener("focusout", (event)=>{ 
+            p10x.disabled = false;
+            p10y.disabled = false;
+        }, false);
+  
+        p10y.addEventListener("focusout", (event)=>{ 
+            p11x.disabled = false;
+            p11y.disabled = false;
+        }, false);
+
+        p11y.addEventListener("focusout", (event)=>{ 
+            p12x.disabled = false;
+            p12y.disabled = false;
+        }, false);
+
+        p12y.addEventListener("focusout", (event)=>{ 
+            p13x.disabled = false;
+            p13y.disabled = false;
+        }, false);
+   
+        p13y.addEventListener("focusout", (event)=>{ 
+            p14x.disabled = false;
+            p14y.disabled = false;
+        }, false);
+  
+        p14y.addEventListener("focusout", (event)=>{ 
+            p15x.disabled = false;
+            p15y.disabled = false;
+        }, false);
+
+        p15y.addEventListener("focusout", (event)=>{ 
+            p16x.disabled = false;
+            p16y.disabled = false;
+        }, false);
+
+        p16y.addEventListener("focusout", (event)=>{ 
+            p17x.disabled = false;
+            p17y.disabled = false;
+        }, false);
+
+        p17y.addEventListener("focusout", (event)=>{ 
+            p18x.disabled = false;
+            p18y.disabled = false;
+        }, false);
+
+        */
 
 //  Evento cuando elemento pierde el focus: focusout
 
-p1x.addEventListener("focusout", (event)=>{ 
+// const body = querySelector("body").addEventListener("onload", (event)=>{ 
+
+//     igualar(p1x,p18x);
+//     igualar(p1x,p2x);
+//     igualar(p2y,p3y);
+//     igualar(p16x,p17x);
+//     igualar(p3x,p4x);
+//     igualar(p3x,p9x);
+//     igualar(p3x,p14x);
+//     igualar(p3x,p15x);
+//     igualar(p4y,p14y);
+//     igualar(p5x,p8x);
+//     igualar(p13x,p10x);
+//     igualar(p5y,p6y);
+//     igualar(p5y,p12y);
+//     igualar(p5y,p13y);
+//     igualar(p8y,p10y);  
+//     igualar(p6x,p7x);
+//     igualar(p7y,p11y);
+//     igualar(p7y,p8y);
+//     igualar(p7y,p10y);
+//     igualar(p7y,p11y);
+//     igualar(p10x,p13x);
+//     igualar(p11x,p12x);
+//     igualar(p16x,p17x);
+
+// }, false);
+
+p1x.oninput = ()=>{ 
     igualar(p1x,p18x);
     igualar(p1x,p2x);
-    });
-p1y.addEventListener("focusout", (event)=>{ 
+    };
+
+p1y.oninput = ()=>{ 
     igualar(p1x,p18x);
     igualar(p1y,p18y);
     igualar(p1y,p17y);
-    }, false);
+    };
 
-p2y.addEventListener("focusout", (event)=>{ 
+
+
+p2y.oninput = ()=>{ 
+    
+    h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
+    b = h/2;    //distancia(p2x.value,p2y.value,p3x.value,p3y.value);
+
+    asignarValor(p3x,b);
+    asignarValor(p4x,b);
+    asignarValor(p14x,b);
+    asignarValor(p15x,b);
+    asignarValor(p9x,b);
+    asignarValor(p15y,h);
+    asignarValor(p16x,h);
+    asignarValor(p16y,h);
+    asignarValor(p17x,h);
+    
     igualar(p2y,p3y);
-    igualar(p2y,p15y);
-    igualar(p2y,p16y);}, false);
+    igualar(p16x,p17x);
 
-p3x.addEventListener("focusout", (event)=>{ 
+
+};
+
+p3x.oninput = ()=>{
     igualar(p3x,p4x);
     igualar(p3x,p9x);
     igualar(p3x,p14x);
-    igualar(p3x,p15x);}, false);
+    igualar(p3x,p15x);
+};
 
-p4y.addEventListener("focusout", (event)=>{ 
-    igualar(p4y,p14y);}, false);
+// #
+p4y.oninput = ()=>{ 
+    igualar(p4y,p14y);
+};
 
-p5x.addEventListener("focusout", (event)=>{ 
-        igualar(p5x,p8x);}, false);
-p5y.addEventListener("focusout", (event)=>{ 
+//#
+p5x.oninput = ()=>{ 
+        
+        m = distancia(b,0,p5x.value,0);
+
+        igualar(p5x,p8x);
+        asignarValor(p13x,b+m);
+        igualar(p13x,p10x);
+
+    };
+
+//#    
+p5y.oninput = () =>{ 
+        
+        n = distancia(0,p5y.value,0,p4y.value);
+        tf = distancia(0,p2y.value,0,p5y.value);
+
+        asignarValor(p9y,tf+n);
+
         igualar(p5y,p6y);
         igualar(p5y,p12y);
-        igualar(p5y,p13y);}, false);
+        igualar(p5y,p13y);
 
-p6x.addEventListener("focusout", (event)=>{ 
-        igualar(p6x,p7x);}, false);
+        asignarValor(p8y,tf);
+        igualar(p8y,p10y);    
+    };
 
-p7y.addEventListener("focusout", (event)=>{ 
+    //#
+p6x.oninput = () =>{
+        
+        tw = distancia(p1x.value,0,p6x.value,0);
+
+        igualar(p6x,p7x);
+        asignarValor(p7y,tf);
+        asignarValor(p11x,h-tw);
+        igualar(p7y,p11y);
+        asignarValor(p12x,h-tw);
+        asignarValor(p12y,h-tf);
+        dibujar();
+    };
+
+p7y.oninput = ()=>{
         igualar(p7y,p8y);
         igualar(p7y,p10y);
-        igualar(p7y,p11y);}, false);
+        igualar(p7y,p11y);
+    };
 
-p10x.addEventListener("focusout", (event)=>{ 
-        igualar(p10x,p13x);}, false);
+p10x.oninput = ()=>{
+        igualar(p10x,p13x);
+    };
 
-p11x.addEventListener("focusout", (event)=>{ 
-        igualar(p11x,p12x);}, false);
+p11x.oninput = ()=>{ 
+        igualar(p11x,p12x);
+    };
 
-p16x.addEventListener("focusout", (event)=>{ 
-        igualar(p16x,p17x);}, false);
+p16x.oninput = ()=>{
+        igualar(p16x,p17x);
+    };
+
 
         
 const limpiar = document.querySelector("#btnLimpiar");
 
+function borrarGráfica(){
+    const canvas = document.getElementById('plano');
+    if (canvas.getContext){
+      let ctx = canvas.getContext('2d');
+    ctx.clearRect(0,0,500,500)
+    }
+}
+
 function limpiarInputs(){
 
-    p1x.value = null;
-    p1y.value = null;
+    p1x.value = 0;
+    p1y.value = 0;
     p2x.value = null;
     p2y.value = null;
     p3x.value = null;
@@ -189,11 +417,12 @@ function limpiarInputs(){
     p18x.value = null;
     p18y.value = null;
 
-    const canvas = document.getElementById('plano');
-    if (canvas.getContext){
-      let ctx = canvas.getContext('2d');
-    ctx.clearRect(0,0,500,500)
-    }
+    igualar(p1x,p18x);
+    igualar(p1y,p18y);
+    igualar(p1x,p2x);
+    igualar(p1y,p17y);
+
+    borrarGráfica();
 }
 
 limpiar.addEventListener("click", (event)=>{ 
@@ -215,12 +444,13 @@ function responder(cX,cY,momentoInerciaX,momentoInerciaY){
 
 /*      Dibujar sección completa     */
 
+let espacioInicial = 0;
+
 function dibujar() {
     const canvas = document.getElementById('plano');
     if (canvas.getContext){
       let ctx = canvas.getContext('2d');
 
-        let espacioInicial = 100;
         let proporcion = 20;
 
       // Sección rellenada 
@@ -264,7 +494,7 @@ function dibujar() {
         if (canvas.getContext){
         let ctx = canvas.getContext('2d');
 
-            let espacioInicial = 100;
+            
             let proporcion = 20;
             let punto = 5;              // Cambia el tamaño del punto
             ctx.fillStyle = "#ff2626";  // Color rojo
@@ -308,16 +538,16 @@ const calcular = document.querySelector("#btnCalcular");
 calcular.addEventListener("click", (event)=>{ 
     
 
-/* Distancias nombradas */
+        /* Distancias nombradas */
 
-let h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
-let b = distancia(p2x.value,p2y.value,p3x.value,p3y.value);
-let tw = distancia(p1x.value,0,p7x.value,0);
-let tf = distancia(p7x.value,0,p7x.value,p7y.value);
-let m = distancia(p5x.value,p5y.value,p4x.value,p5y.value);
-let n = distancia(p4x.value,p5y.value,p4x.value,p4y.value);
+        let h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
+        let b = h/2;    //distancia(p2x.value,p2y.value,p3x.value,p3y.value);
+        let tw = distancia(p1x.value,0,p6x.value,0);
+        let tf = distancia(0,p2y.value,0,p5y.value);
+        let m = distancia(b,0,p5x.value,0);
+        let n = distancia(0,p5y.value,0,p4y.value);
 
-console.info("Valores de Distancias:")
+console.log("Valores de Distancias:")
 console.table({
     h:h,
     b:b,
@@ -435,7 +665,7 @@ let formas_simples = [
 
 /* Calcular centroide total de la forma compuesta */
 
-console.info("Datos de Formas Simples:")
+console.log("Datos de Formas Simples:")
 console.table(formas_simples);
 
 function calcularCentroideX(formas){
@@ -458,11 +688,7 @@ function calcularCentroideY(formas){
     return yiAi/Ai; 
 }
 
-/*
-    calcular momento de inerciax:
-    // forma_compuesta.mix = Ix1 + Ix2 + Ix3 + Ix4 + Ix5 + Ix6 + Ix7 + Ix8 + Ix9 + Ix10;
-    // Ix1 = formas_simple[0].mix + (Math.pow(Math.abs(formas_simple[0].cy-forma_compuesta.cy),2)*formas_simple[0].area); 
-*/
+
 
     function calcularMIX(formas){ 
         let Ix = 0;
@@ -491,49 +717,96 @@ let forma_compuesta = {
     forma_compuesta.miy = calcularMIY(formas_simples);
     
     responder(forma_compuesta.cx.toFixed(2), forma_compuesta.cy.toFixed(2), forma_compuesta.mix.toFixed(2), forma_compuesta.miy.toFixed(2));
+    borrarGráfica();
     dibujar();
     dibujarCentroide(forma_compuesta.cx,forma_compuesta.cy);
 
 }, false);
 
-function valoresDePrueba(){
+function valoresDePrueba(asignados){
 
-    p1x.value = 0;
-    p1y.value = 0;
-    p2x.value = 0;
-    p2y.value = 10;
-    p3x.value = 5;
-    p3y.value = 10;
-    p4x.value = 5;
-    p4y.value = 7;
-    p5x.value = 4;
-    p5y.value = 8;
-    p6x.value = 2;
-    p6y.value = 8;
-    p7x.value = 2;
-    p7y.value = 2;
-    p8x.value = 4;
-    p8y.value = 2;
-    p9x.value = 5;
-    p9y.value = 3;
-    p10x.value = 6;
-    p10y.value = 2;
-    p11x.value = 8;
-    p11y.value = 2;
-    p12x.value = 8;
-    p12y.value = 8;
-    p13x.value = 6;
-    p13y.value = 8;    
-    p14x.value = 5;
-    p14y.value = 7;    
-    p15x.value = 5;
-    p15y.value = 10;    
-    p16x.value = 10;
-    p16y.value = 10;
-    p17x.value = 10;
-    p17y.value = 0;
-    p18x.value = 0;
-    p18y.value = 0;
+    if(!asignados){
 
-    console.info("Listo para probar");
+        p1x.value = 0;
+        p1y.value = 0;
+        p2x.value = 0;
+        p2y.value = 10;
+        p3x.value = 5;
+        p3y.value = 10;
+        p4x.value = 5;
+        p4y.value = 7;
+        p5x.value = 4;
+        p5y.value = 8;
+        p6x.value = 2;
+        p6y.value = 8;
+        p7x.value = 2;
+        p7y.value = 2;
+        p8x.value = 4;
+        p8y.value = 2;
+        p9x.value = 5;
+        p9y.value = 3;
+        p10x.value = 6;
+        p10y.value = 2;
+        p11x.value = 8;
+        p11y.value = 2;
+        p12x.value = 8;
+        p12y.value = 8;
+        p13x.value = 6;
+        p13y.value = 8;    
+        p14x.value = 5;
+        p14y.value = 7;    
+        p15x.value = 5;
+        p15y.value = 10;    
+        p16x.value = 10;
+        p16y.value = 10;
+        p17x.value = 10;
+        p17y.value = 0;
+        p18x.value = 0;
+        p18y.value = 0;
+        console.info("Listo para probar con valores propios.");
+
+    } else
+    {
+        p1x.value = 0;
+        p1y.value = 0;
+        p2x.value = 0;
+        p2y.value = 20;
+        p3x.value = 10;
+        p3y.value = 20;
+        p4x.value = 10;
+        p4y.value = 17;
+        p5x.value = 8;
+        p5y.value = 19;
+        p6x.value = 1;
+        p6y.value = 19;
+        p7x.value = 1;
+        p7y.value = 1;
+        p8x.value = 8;
+        p8y.value = 1;
+        p9x.value = 10;
+        p9y.value = 3;
+        p10x.value = 12;
+        p10y.value = 1;
+        p11x.value = 19;
+        p11y.value = 1;
+        p12x.value = 19;
+        p12y.value = 19;
+        p13x.value = 12;
+        p13y.value = 19;    
+        p14x.value = 10;
+        p14y.value = 17;    
+        p15x.value = 10;
+        p15y.value = 20;    
+        p16x.value = 20;
+        p16y.value = 20;
+        p17x.value = 20;
+        p17y.value = 0;
+        p18x.value = 0;
+        p18y.value = 0;
+
+        console.info("Listo para probar con valores asignados por el profesor.");
+    }
+    
+
+    
 }
