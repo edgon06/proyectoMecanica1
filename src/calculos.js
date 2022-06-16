@@ -9,6 +9,7 @@
 
 */
 
+/* ----------------------------------------------------------------------------------------------------------*/
 
 /* Entrada de datos */
 
@@ -73,26 +74,6 @@ const p18y = document.querySelector("#P18y");
 
 /*    Eventos para asistencia al introducir datos para mantener la proporción   */
 
-/*
-
-    igualdades para mantener la proporción: 
-
-    1x = 18x, 2x
-    1y = 18y, 17y 
-    2y = 3y, 15y, 16y
-    3x = 4x, 9x, 14x, 15x
-    4Y = 14y
-    5x = 8x,
-    5y = 6y, 12y, 13y
-    6x = 7x
-    7y = 8y, 10y 11y
-    9y 
-    10x = 13x
-    11x= 12x
-    16x = 17x
-
-*/
-
 function igualar(inputA,inputB){
     if(inputA.value!=null && inputA.value!=undefined && inputA.value!= NaN){
         inputB.value = inputA.value;
@@ -124,162 +105,61 @@ igualar(p1y,p17y);
         let m;  // = distancia(b,0,p5x.value,0);
         let n;  // = distancia(0,p5y.value,0,p4y.value);
 
-        /*
-        p1y.addEventListener("focusout", (event)=>{ 
-            if(p2x.value!= null && p2y.value!= null){
-                p2x.disabled = false;
-                p2y.disabled = false;
-            }
 
-        }, false);
+const asistencia = document.querySelector("#asistencia");
+asistencia.onclick = ()=> {
+    if(asistencia.checked == true)
+{
 
-        p2y.addEventListener("change", (event)=>{ 
-            if(p2x.value!= null && p2y.value!= null){
-                p3x.disabled = false;
-                p3y.disabled = false;
-                p4x.disabled = false;
-                p4y.disabled = false;
-            }
-          
-        }, false);
-
-        p3y.addEventListener("focusout", (event)=>{ 
-            if(p3x.value!= null && p3y.value!= null){
-                p4x.disabled = false;
-                p4y.disabled = false;
-            }
-            
-        }, false);
-
-        p4y.addEventListener("change", (event)=>{ 
-            if(p4x.value!= null && p4y.value!= null){
-                p5x.disabled = false;
-                p5y.disabled = false;
-            }
-            
-        }, false);
-   
-        p5y.addEventListener("change", (event)=>{ 
-            if(p5x.value!= undefined && p5y.value!= undefined){
-                p6x.disabled = false;
-                p6y.disabled = false;
-            }
-        }, false);
-
-        p6x.addEventListener("change", (event)=>{ 
-            if(p6x.value!= undefined && p6y.value!= undefined){
-                p7x.disabled = false;
-                p7y.disabled = false;
-            }
-            
-        }, false);
-    
-        p7y.addEventListener("focusout", (event)=>{ 
-            p8x.disabled = false;
-            p8y.disabled = false;
-        }, false);
-
-        p8y.addEventListener("focusout", (event)=>{ 
-            p9x.disabled = false;
-            p9y.disabled = false;
-        }, false);
-
-        p9y.addEventListener("focusout", (event)=>{ 
-            p10x.disabled = false;
-            p10y.disabled = false;
-        }, false);
-  
-        p10y.addEventListener("focusout", (event)=>{ 
-            p11x.disabled = false;
-            p11y.disabled = false;
-        }, false);
-
-        p11y.addEventListener("focusout", (event)=>{ 
-            p12x.disabled = false;
-            p12y.disabled = false;
-        }, false);
-
-        p12y.addEventListener("focusout", (event)=>{ 
-            p13x.disabled = false;
-            p13y.disabled = false;
-        }, false);
-   
-        p13y.addEventListener("focusout", (event)=>{ 
-            p14x.disabled = false;
-            p14y.disabled = false;
-        }, false);
-  
-        p14y.addEventListener("focusout", (event)=>{ 
-            p15x.disabled = false;
-            p15y.disabled = false;
-        }, false);
-
-        p15y.addEventListener("focusout", (event)=>{ 
-            p16x.disabled = false;
-            p16y.disabled = false;
-        }, false);
-
-        p16y.addEventListener("focusout", (event)=>{ 
-            p17x.disabled = false;
-            p17y.disabled = false;
-        }, false);
-
-        p17y.addEventListener("focusout", (event)=>{ 
-            p18x.disabled = false;
-            p18y.disabled = false;
-        }, false);
-
-        */
-
+ limpiarInputs();   
 //  Evento cuando elemento pierde el focus: focusout
 
-// const body = querySelector("body").addEventListener("onload", (event)=>{ 
+p2y.style="border-color: rgb(42, 0, 194)";
 
-//     igualar(p1x,p18x);
-//     igualar(p1x,p2x);
-//     igualar(p2y,p3y);
-//     igualar(p16x,p17x);
-//     igualar(p3x,p4x);
-//     igualar(p3x,p9x);
-//     igualar(p3x,p14x);
-//     igualar(p3x,p15x);
-//     igualar(p4y,p14y);
-//     igualar(p5x,p8x);
-//     igualar(p13x,p10x);
-//     igualar(p5y,p6y);
-//     igualar(p5y,p12y);
-//     igualar(p5y,p13y);
-//     igualar(p8y,p10y);  
-//     igualar(p6x,p7x);
-//     igualar(p7y,p11y);
-//     igualar(p7y,p8y);
-//     igualar(p7y,p10y);
-//     igualar(p7y,p11y);
-//     igualar(p10x,p13x);
-//     igualar(p11x,p12x);
-//     igualar(p16x,p17x);
+p1x.disabled = true;
+p1y.disabled = true;
+p2x.disabled = true;
+p3x.disabled = true;
+p3y.disabled = true;
+p4x.disabled = true;
+p6y.disabled = true;
+p7x.disabled = true;
+p7y.disabled = true;
+p8x.disabled = true;
+p8y.disabled = true;
+p9x.disabled = true;
+p9y.disabled = true;
+p10x.disabled = true;
+p10y.disabled = true;
+p11x.disabled = true;
+p11y.disabled = true;
+p12x.disabled = true;
+p12y.disabled = true;
+p13x.disabled = true;
+p13y.disabled = true;
+p14x.disabled = true;
+p14y.disabled = true;
+p15x.disabled = true;
+p15y.disabled = true;
+p16x.disabled = true;
+p16y.disabled = true;
+p17x.disabled = true;
+p17y.disabled = true;
+p18x.disabled = true;
+p18y.disabled = true;
 
-// }, false);
-
-p1x.oninput = ()=>{ 
-    igualar(p1x,p18x);
-    igualar(p1x,p2x);
-    };
-
-p1y.oninput = ()=>{ 
-    igualar(p1x,p18x);
-    igualar(p1y,p18y);
-    igualar(p1y,p17y);
-    };
-
-
+p4y.disabled = true;
+p5x.disabled = true;
+p5y.disabled = true;
+p6x.disabled = true;
 
 p2y.oninput = ()=>{ 
     
     h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
-    b = h/2;    //distancia(p2x.value,p2y.value,p3x.value,p3y.value);
+    b = h/2;    
 
     asignarValor(p3x,b);
+    asignarValor(p3y,h);
     asignarValor(p4x,b);
     asignarValor(p14x,b);
     asignarValor(p15x,b);
@@ -289,22 +169,22 @@ p2y.oninput = ()=>{
     asignarValor(p16y,h);
     asignarValor(p17x,h);
     
-    igualar(p2y,p3y);
-    igualar(p16x,p17x);
-
-
+    p4y.disabled = false;
+    p4y.style="border-color: rgb(42, 0, 194)";
 };
 
-p3x.oninput = ()=>{
-    igualar(p3x,p4x);
-    igualar(p3x,p9x);
-    igualar(p3x,p14x);
-    igualar(p3x,p15x);
-};
+// p3x.oninput = ()=>{
+//     igualar(p3x,p4x);
+//     igualar(p3x,p9x);
+//     igualar(p3x,p14x);
+//     igualar(p3x,p15x);
+// };
 
 // #
 p4y.oninput = ()=>{ 
-    igualar(p4y,p14y);
+    asignarValor(p14y, p4y.value);
+    p5x.disabled = false;
+    p5x.style="border-color: rgb(42, 0, 194)";  
 };
 
 //#
@@ -312,10 +192,12 @@ p5x.oninput = ()=>{
         
         m = distancia(b,0,p5x.value,0);
 
-        igualar(p5x,p8x);
+        asignarValor(p8x,p5x.value);
         asignarValor(p13x,b+m);
-        igualar(p13x,p10x);
-
+        asignarValor(p10x,b+m);
+        
+        p5y.disabled = false;
+        p5y.style="border-color: rgb(42, 0, 194)";
     };
 
 //#    
@@ -324,14 +206,15 @@ p5y.oninput = () =>{
         n = distancia(0,p5y.value,0,p4y.value);
         tf = distancia(0,p2y.value,0,p5y.value);
 
-        asignarValor(p9y,tf+n);
-
-        igualar(p5y,p6y);
-        igualar(p5y,p12y);
-        igualar(p5y,p13y);
-
         asignarValor(p8y,tf);
-        igualar(p8y,p10y);    
+        asignarValor(p9y,tf+n);
+        asignarValor(p10y,tf);
+        asignarValor(p6y,p5y.value);
+        asignarValor(p12y,p5y.value);
+        asignarValor(p13y,p5y.value);
+
+        p6x.disabled = false;
+        p6x.style="border-color: rgb(42, 0, 194)";
     };
 
     //#
@@ -339,44 +222,96 @@ p6x.oninput = () =>{
         
         tw = distancia(p1x.value,0,p6x.value,0);
 
-        igualar(p6x,p7x);
+        asignarValor(p7x,p6x.value);
         asignarValor(p7y,tf);
         asignarValor(p11x,h-tw);
-        igualar(p7y,p11y);
+        asignarValor(p11y,p7y.value);
         asignarValor(p12x,h-tw);
         asignarValor(p12y,h-tf);
+
         dibujar();
+    };    
+
+}else
+{
+p2y.style="";
+p4y.style="";
+p5x.style="";
+p5y.style="";
+p6x.style="";
+
+p4y.disabled = false;
+p5x.disabled = false;
+p5y.disabled = false;
+p6x.disabled = false;
+
+p1x.disabled = false;
+p1y.disabled = false;
+p2x.disabled = false;
+p3x.disabled = false;
+p3y.disabled = false;
+p4x.disabled = false;
+p6y.disabled = false;
+p7x.disabled = false;
+p7y.disabled = false;
+p8x.disabled = false;
+p8y.disabled = false;
+p9x.disabled = false;
+p9y.disabled = false;
+p10x.disabled = false;
+p10y.disabled = false;
+p11x.disabled = false;
+p11y.disabled = false;
+p12x.disabled = false;
+p12y.disabled = false;
+p13x.disabled = false;
+p13y.disabled = false;
+p14x.disabled = false;
+p14y.disabled = false;
+p15x.disabled = false;
+p15y.disabled = false;
+p16x.disabled = false;
+p16y.disabled = false;
+p17x.disabled = false;
+p17y.disabled = false;
+p18x.disabled = false;
+p18y.disabled = false;
+
+    //#
+    p2y.oninput = ()=>{ 
     };
-
-p7y.oninput = ()=>{
-        igualar(p7y,p8y);
-        igualar(p7y,p10y);
-        igualar(p7y,p11y);
+    //#
+    p4y.oninput = ()=>{ 
     };
-
-p10x.oninput = ()=>{
-        igualar(p10x,p13x);
+    //#
+    p5x.oninput = ()=>{ 
     };
-
-p11x.oninput = ()=>{ 
-        igualar(p11x,p12x);
+    //#    
+    p5y.oninput = () =>{       
     };
-
-p16x.oninput = ()=>{
-        igualar(p16x,p17x);
-    };
-
-
-        
-const limpiar = document.querySelector("#btnLimpiar");
-
-function borrarGráfica(){
-    const canvas = document.getElementById('plano');
-    if (canvas.getContext){
-      let ctx = canvas.getContext('2d');
-    ctx.clearRect(0,0,500,500)
-    }
+    //#
+    p6x.oninput = () =>{   
+    };              
 }
+ 
+}
+
+     
+
+const miX = document.querySelector("#miX");
+const miY = document.querySelector("#miY");
+const centroideX = document.querySelector("#centroideX");
+const centroideY = document.querySelector("#centroideY");
+
+function responder(cX,cY,momentoInerciaX,momentoInerciaY){
+    centroideX.innerHTML = `Coordenada de centroide en X:  ${cX} cm`;
+    centroideY.innerHTML = `Coordenada de centroide en Y:  ${cY} cm`;
+    miX.innerHTML = `Momento de inercia en X: ${momentoInerciaX} cm4`;
+    miY.innerHTML = `Momento de inercia en Y: ${momentoInerciaY} cm4`;
+
+}
+
+const limpiar = document.querySelector("#btnLimpiar");
 
 function limpiarInputs(){
 
@@ -423,30 +358,48 @@ function limpiarInputs(){
     igualar(p1y,p17y);
 
     borrarGráfica();
+    responder(0,0,0,0);
 }
 
 limpiar.addEventListener("click", (event)=>{ 
             limpiarInputs();
         }, false);
 
-const miX = document.querySelector("#miX");
-const miY = document.querySelector("#miY");
-const centroideX = document.querySelector("#centroideX");
-const centroideY = document.querySelector("#centroideY");
+/* ----------------------------------------------------------------------------------------------------------*/
 
-function responder(cX,cY,momentoInerciaX,momentoInerciaY){
-    centroideX.innerHTML = `Coordenada de centroide en X:  ${cX} cm`;
-    centroideY.innerHTML = `Coordenada de centroide en Y:  ${cY} cm`;
-    miX.innerHTML = `Momento de inercia en X: ${momentoInerciaX} cm4`;
-    miY.innerHTML = `Momento de inercia en Y: ${momentoInerciaY} cm4`;
-
-}
-
-/*      Dibujar sección completa     */
+/*          Funciones de dibujado         */
 
 let espacioInicial = 0;
 
+  /*      Limpiar el Canvas     */
+  function borrarGráfica(){
+    const canvas = document.getElementById('plano');
+    if (canvas.getContext){
+        let ctx = canvas.getContext('2d');
+        ctx.clearRect(0,0,500,500)
+    }
+}
+
+
+  /*      Dibujar centroide     */
+  function dibujarCentroide(x,y){
+    const canvas = document.getElementById('plano');
+    if (canvas.getContext){
+    let ctx = canvas.getContext('2d');    
+        let proporcion = 20;
+        let punto = 5;              // Cambia el tamaño del punto
+        ctx.fillStyle = "#ff2626";  // Color rojo
+        ctx.beginPath();            // Iniciar trazo
+        //ctx.lineTo(espacioInicial + x*proporcion,y*proporcion);
+        ctx.arc(espacioInicial + (x*proporcion),500- y*proporcion, punto, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
+        ctx.fill();                 // Terminar trazo 
+        ctx.closePath(); 
+    }
+}
+
+/*      Dibujar sección     */
 function dibujar() {
+    borrarGráfica();
     const canvas = document.getElementById('plano');
     if (canvas.getContext){
       let ctx = canvas.getContext('2d');
@@ -478,37 +431,12 @@ function dibujar() {
       ctx.fill();
       ctx.closePath();
 
-    //   // Ejemplo de Triángulo contorneado
-    //   ctx.beginPath();
-    //   ctx.moveTo(125,125);
-    //   ctx.lineTo(125,45);
-    //   ctx.lineTo(45,125);
-    //   ctx.closePath();
-    //   ctx.stroke();
     }
   }
 
-  /*      Dibujar un centroide     */
-    function dibujarCentroide(x,y){
-        const canvas = document.getElementById('plano');
-        if (canvas.getContext){
-        let ctx = canvas.getContext('2d');
-
-            
-            let proporcion = 20;
-            let punto = 5;              // Cambia el tamaño del punto
-            ctx.fillStyle = "#ff2626";  // Color rojo
-            ctx.beginPath();            // Iniciar trazo
-            //ctx.lineTo(espacioInicial + x*proporcion,y*proporcion);
-            ctx.arc(espacioInicial + (x*proporcion),500- y*proporcion, punto, 0, Math.PI * 2, true); // Dibujar un punto usando la funcion arc
-            ctx.fill();                 // Terminar trazo
-          
-        }
-    }
-
 /* ----------------------------------------------------------------------------------------------------------*/
 
-/*      Resolución del problema     */
+/*      Cálculos matemáticos     */
 
 /*      Funciones auxiliares        */
 
@@ -538,190 +466,197 @@ const calcular = document.querySelector("#btnCalcular");
 calcular.addEventListener("click", (event)=>{ 
     
 
-        /* Distancias nombradas */
+/* Distancias nombradas */
 
-        let h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
-        let b = h/2;    //distancia(p2x.value,p2y.value,p3x.value,p3y.value);
-        let tw = distancia(p1x.value,0,p6x.value,0);
-        let tf = distancia(0,p2y.value,0,p5y.value);
-        let m = distancia(b,0,p5x.value,0);
-        let n = distancia(0,p5y.value,0,p4y.value);
+let h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
+let b = distancia(p2x.value,p2y.value,p3x.value,p3y.value); // h/2; 
+let tw = distancia(p1x.value,0,p6x.value,0);
+let tf = distancia(0,p2y.value,0,p5y.value);
+let m = distancia(b,0,p5x.value,0);
+let n = distancia(0,p5y.value,0,p4y.value);
 
-console.log("Valores de Distancias:")
-console.table({
-    h:h,
-    b:b,
-    tw:tw,
-    tf:tf,
-    m:m,
-    n:n
-});
-
-/*    Formas simples    */
-
-let formas_simples = [
-    // Forma 1
-    {
-        base: tw,
-        altura: h,
-        area: tw * h,
-        cx: tw/2,
-        cy: h/2,
-        mix: miXRectangulo(tw,h),
-        miy: miYRectangulo(tw,h)
-    },
-    // Forma 2
-    {
-        base: Math.abs(b-tw) ,
-        altura: tf,
-        area : Math.abs(b-tw) * tf,
-        cx: tw + Math.abs(b-tw)/2,
-        cy: Math.abs(h-tf) + (tf)/2,
-        mix: miXRectangulo(Math.abs(b-tw),tf),
-        miy: miYRectangulo(Math.abs(b-tw),tf)
-    },
-    // Forma 3
-    {
-        base: m,
-        altura: n,
-        area : (m * n)/2,
-        cx: Math.abs(b-m) + (2*m)/3,
-        cy: Math.abs(h-tf) - n/3,
-        mix: miXTriangulo(m,n),
-        miy: miYTriangulo(m,n)
-    },
-    // Forma 4
-    {
-        base: m,
-        altura: n,
-        area : (m * n)/2,
-        cx: b + (m)/3,
-        cy: Math.abs(h-tf) - n/3,
-        mix: miXTriangulo(m,n),
-        miy: miYTriangulo(m,n)
-    },
-    // Forma 5
-    {
-        base: b-tw,
-        altura: tf,
-        area : Math.abs(b-tw)* (tf),
-        cx: b  + (Math.abs(b-tw)/2),
-        cy: Math.abs(h-tf) + (tf)/2,
-        mix: miXRectangulo(Math.abs(b-tw),tf),
-        miy: miYRectangulo(Math.abs(b-tw),tf)
-    },
-
-    // Forma 6
-    {
-        base: tw,
-        altura: h,
-        area : tw * h,
-        cx: Math.abs((2*b) -tw )+ (tw/2),
-        cy:  h/2,
-        mix: miXRectangulo(tw,h),
-        miy: miYRectangulo(tw,h)
-    },
-    // Forma 7
-    {
-        base: Math.abs(b-tw),
-        altura: tf,
-        area : Math.abs(b-tw) * tf,
-        cx: b  + (Math.abs(b-tw)/2),
-        cy: tf/2,
-        mix: miXRectangulo(Math.abs(b-tw),tf),
-        miy: miYRectangulo(Math.abs(b-tw),tf)
-    },
-    // Forma 8
-    {
-        base: m,
-        altura: n,
-        area : (m * n)/2,
-        cx: b + (m)/3,
-        cy: tf + (n)/3,
-        mix: miXTriangulo(m,n),
-        miy: miYTriangulo(m,n)
-    },
-    // Forma 9
-    {
-        base: m,
-        altura: n,
-        area : (m* n)/2,
-        cx: Math.abs(b-m) + (2*m)/3,
-        cy: Math.abs(tf) + n/3,
-        mix: miXTriangulo(m,n),
-        miy: miYTriangulo(m,n)
-    },  
-    // Forma 10
-    {
-        base: Math.abs(b-tw),
-        altura: tf,
-        area : Math.abs(b-tw) * tf,
-        cx: Math.abs(b-tw)/2,
-        cy: tf/2,
-        mix: miXRectangulo(Math.abs(b-tw),tf),
-        miy: miYRectangulo(Math.abs(b-tw),tf)
-    }
-];
-
-/* Calcular centroide total de la forma compuesta */
-
-console.log("Datos de Formas Simples:")
-console.table(formas_simples);
-
-function calcularCentroideX(formas){
-    let xiAi = 0;
-    let Ai = 0; 
-    formas.forEach(forma => {
-        xiAi += forma.cx*forma.area;
-        Ai += forma.area;
+if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
+    console.log("Valores de Distancias:")
+    console.table({
+        h:h,
+        b:b,
+        tw:tw,
+        tf:tf,
+        m:m,
+        n:n
     });
-    return xiAi/Ai; 
-}
 
-function calcularCentroideY(formas){
-    let yiAi = 0;
-    let Ai = 0; 
-    formas.forEach(forma => {
-        yiAi += forma.cy*forma.area;
-        Ai += forma.area;
-    });
-    return yiAi/Ai; 
-}
+    /*    Formas simples    */
 
+    let formas_simples = [
+        // Forma 1
+        {
+            base: tw,
+            altura: h,
+            area: tw * h,
+            cx: tw/2,
+            cy: h/2,
+            mix: miXRectangulo(tw,h),
+            miy: miYRectangulo(tw,h)
+        },
+        // Forma 2
+        {
+            base: Math.abs(b-tw) ,
+            altura: tf,
+            area : Math.abs(b-tw) * tf,
+            cx: tw + Math.abs(b-tw)/2,
+            cy: Math.abs(h-tf) + (tf)/2,
+            mix: miXRectangulo(Math.abs(b-tw),tf),
+            miy: miYRectangulo(Math.abs(b-tw),tf)
+        },
+        // Forma 3
+        {
+            base: m,
+            altura: n,
+            area : (m * n)/2,
+            cx: Math.abs(b-m) + (2*m)/3,
+            cy: Math.abs(h-tf) - n/3,
+            mix: miXTriangulo(m,n),
+            miy: miYTriangulo(m,n)
+        },
+        // Forma 4
+        {
+            base: m,
+            altura: n,
+            area : (m * n)/2,
+            cx: b + (m)/3,
+            cy: Math.abs(h-tf) - n/3,
+            mix: miXTriangulo(m,n),
+            miy: miYTriangulo(m,n)
+        },
+        // Forma 5
+        {
+            base: b-tw,
+            altura: tf,
+            area : Math.abs(b-tw)* (tf),
+            cx: b  + (Math.abs(b-tw)/2),
+            cy: Math.abs(h-tf) + (tf)/2,
+            mix: miXRectangulo(Math.abs(b-tw),tf),
+            miy: miYRectangulo(Math.abs(b-tw),tf)
+        },
 
+        // Forma 6
+        {
+            base: tw,
+            altura: h,
+            area : tw * h,
+            cx: Math.abs((2*b) -tw )+ (tw/2),
+            cy:  h/2,
+            mix: miXRectangulo(tw,h),
+            miy: miYRectangulo(tw,h)
+        },
+        // Forma 7
+        {
+            base: Math.abs(b-tw),
+            altura: tf,
+            area : Math.abs(b-tw) * tf,
+            cx: b  + (Math.abs(b-tw)/2),
+            cy: tf/2,
+            mix: miXRectangulo(Math.abs(b-tw),tf),
+            miy: miYRectangulo(Math.abs(b-tw),tf)
+        },
+        // Forma 8
+        {
+            base: m,
+            altura: n,
+            area : (m * n)/2,
+            cx: b + (m)/3,
+            cy: tf + (n)/3,
+            mix: miXTriangulo(m,n),
+            miy: miYTriangulo(m,n)
+        },
+        // Forma 9
+        {
+            base: m,
+            altura: n,
+            area : (m* n)/2,
+            cx: Math.abs(b-m) + (2*m)/3,
+            cy: Math.abs(tf) + n/3,
+            mix: miXTriangulo(m,n),
+            miy: miYTriangulo(m,n)
+        },  
+        // Forma 10
+        {
+            base: Math.abs(b-tw),
+            altura: tf,
+            area : Math.abs(b-tw) * tf,
+            cx: Math.abs(b-tw)/2,
+            cy: tf/2,
+            mix: miXRectangulo(Math.abs(b-tw),tf),
+            miy: miYRectangulo(Math.abs(b-tw),tf)
+        }
+    ];
 
-    function calcularMIX(formas){ 
-        let Ix = 0;
+    /* Calcular centroide total de la forma compuesta */
+
+    console.log("Datos de Formas Simples:")
+    console.table(formas_simples);
+
+    function calcularCentroideX(formas){
+        let xiAi = 0;
+        let Ai = 0; 
         formas.forEach(forma => {
-            Ix += forma.mix + (Math.pow(Math.abs(forma.cy-forma_compuesta.cy),2)*forma.area);
+            xiAi += forma.cx*forma.area;
+            Ai += forma.area;
         });
-        return Ix; 
+        return xiAi/Ai; 
     }
 
-    function calcularMIY(formas){ 
-        let Iy = 0;
+    function calcularCentroideY(formas){
+        let yiAi = 0;
+        let Ai = 0; 
         formas.forEach(forma => {
-            Iy += forma.mix + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area);
+            yiAi += forma.cy*forma.area;
+            Ai += forma.area;
         });
-        return Iy; 
+        return yiAi/Ai; 
     }
 
-let forma_compuesta = {
-    cx: calcularCentroideX(formas_simples),
-    cy: calcularCentroideY(formas_simples),
-    mix: 0, // coming soon
-    miy: 0, // coming soon
-};
+        function calcularMIX(formas){ 
+            let Ix = 0;
+            formas.forEach(forma => {
+                Ix += forma.mix + (Math.pow(Math.abs(forma.cy-forma_compuesta.cy),2)*forma.area);
+            });
+            return Ix; 
+        }
 
-    forma_compuesta.mix = calcularMIX(formas_simples);
-    forma_compuesta.miy = calcularMIY(formas_simples);
+        function calcularMIY(formas){ 
+            let Iy = 0;
+            formas.forEach(forma => {
+                Iy += forma.mix + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area);
+            });
+            return Iy; 
+        }
+
+    let forma_compuesta = {
+        cx: calcularCentroideX(formas_simples),
+        cy: calcularCentroideY(formas_simples),
+        mix: 0, // coming soon
+        miy: 0, // coming soon
+    };
+
+        forma_compuesta.mix = calcularMIX(formas_simples);
+        forma_compuesta.miy = calcularMIY(formas_simples);
+        responder(forma_compuesta.cx.toFixed(2), forma_compuesta.cy.toFixed(2), forma_compuesta.mix.toFixed(2), forma_compuesta.miy.toFixed(2));
+        dibujar();
+        dibujarCentroide(forma_compuesta.cx,forma_compuesta.cy);
+}else{
+    alert("Valores no aceptables, considere otras coordenadas para los puntos.");
+    if(asistencia.checked==true){
+        asistencia.onclick();
+        limpiarInputs();
+    }
     
-    responder(forma_compuesta.cx.toFixed(2), forma_compuesta.cy.toFixed(2), forma_compuesta.mix.toFixed(2), forma_compuesta.miy.toFixed(2));
-    borrarGráfica();
-    dibujar();
-    dibujarCentroide(forma_compuesta.cx,forma_compuesta.cy);
+}
 
 }, false);
+
+/* ----------------------------------------------------------------------------------------------------------*/
 
 function valoresDePrueba(asignados){
 
@@ -810,3 +745,11 @@ function valoresDePrueba(asignados){
 
     
 }
+
+const ajustarDimensiones = document.querySelector("#ajustarDimensiones");
+ajustarDimensiones.addEventListener("click", (event)=>{ 
+    valoresDePrueba(1);
+}, false);
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
