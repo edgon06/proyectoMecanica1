@@ -74,242 +74,212 @@ const p18y = document.querySelector("#P18y");
 
 /*    Eventos para asistencia al introducir datos para mantener la proporción   */
 
-function igualar(inputA,inputB){
-    if(inputA.value!=null && inputA.value!=undefined && inputA.value!= NaN){
-        inputB.value = inputA.value;
-    }else
-    {
-        inputA.value = inputB.value;
-    }   
-}
-
 function asignarValor(input, valor){
     input.value = valor;
 }
 
-
 // Establecer que inicie en el origen
 p1x.value = 0;
 p1y.value = 0;
-igualar(p1x,p18x);
-igualar(p1y,p18y);
-igualar(p1x,p2x);
-igualar(p1y,p17y);
+asignarValor(p18x,p1x.value);
+asignarValor(p18y,p1x.value);
+asignarValor(p2x,p1x.value);
+asignarValor(p17y,p1x.value);
 
         /* Distancias nombradas */
 
-        let h;  // = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
-        let b;  // = h/2;    //distancia(p2x.value,p2y.value,p3x.value,p3y.value);
-        let tw; // = distancia(p1x.value,0,p6x.value,0);
-        let tf; // = distancia(0,p2y.value,0,p5y.value);
-        let m;  // = distancia(b,0,p5x.value,0);
-        let n;  // = distancia(0,p5y.value,0,p4y.value);
-
+    let h;  // = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
+    let b;  // = h/2;    //distancia(p2x.value,p2y.value,p3x.value,p3y.value);
+    let tw; // = distancia(p1x.value,0,p6x.value,0);
+    let tf; // = distancia(0,p2y.value,0,p5y.value);
+    let m;  // = distancia(b,0,p5x.value,0);
+    let n;  // = distancia(0,p5y.value,0,p4y.value);
 
 const asistencia = document.querySelector("#asistencia");
 asistencia.onclick = ()=> {
-    if(asistencia.checked == true)
-{
+if(asistencia.checked == true)
+    {
 
- limpiarInputs();   
-//  Evento cuando elemento pierde el focus: focusout
+    limpiarInputs();   
 
-p2y.style="border-color: rgb(42, 0, 194)";
+    p2y.style="border-color: rgb(42, 0, 194)";
 
-p1x.disabled = true;
-p1y.disabled = true;
-p2x.disabled = true;
-p3x.disabled = true;
-p3y.disabled = true;
-p4x.disabled = true;
-p6y.disabled = true;
-p7x.disabled = true;
-p7y.disabled = true;
-p8x.disabled = true;
-p8y.disabled = true;
-p9x.disabled = true;
-p9y.disabled = true;
-p10x.disabled = true;
-p10y.disabled = true;
-p11x.disabled = true;
-p11y.disabled = true;
-p12x.disabled = true;
-p12y.disabled = true;
-p13x.disabled = true;
-p13y.disabled = true;
-p14x.disabled = true;
-p14y.disabled = true;
-p15x.disabled = true;
-p15y.disabled = true;
-p16x.disabled = true;
-p16y.disabled = true;
-p17x.disabled = true;
-p17y.disabled = true;
-p18x.disabled = true;
-p18y.disabled = true;
+    p1x.disabled = true;
+    p1y.disabled = true;
+    p2x.disabled = true;
+    p3x.disabled = true;
+    p3y.disabled = true;
+    p4x.disabled = true;
+    p6y.disabled = true;
+    p7x.disabled = true;
+    p7y.disabled = true;
+    p8x.disabled = true;
+    p8y.disabled = true;
+    p9x.disabled = true;
+    p9y.disabled = true;
+    p10x.disabled = true;
+    p10y.disabled = true;
+    p11x.disabled = true;
+    p11y.disabled = true;
+    p12x.disabled = true;
+    p12y.disabled = true;
+    p13x.disabled = true;
+    p13y.disabled = true;
+    p14x.disabled = true;
+    p14y.disabled = true;
+    p15x.disabled = true;
+    p15y.disabled = true;
+    p16x.disabled = true;
+    p16y.disabled = true;
+    p17x.disabled = true;
+    p17y.disabled = true;
+    p18x.disabled = true;
+    p18y.disabled = true;
 
-p4y.disabled = true;
-p5x.disabled = true;
-p5y.disabled = true;
-p6x.disabled = true;
+    p4y.disabled = true;
+    p5x.disabled = true;
+    p5y.disabled = true;
+    p6x.disabled = true;
 
-p2y.oninput = ()=>{ 
-    
-    h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
-    b = h/2;    
+    //  Evento cuando elemento pierde el focus: focusout
 
-    asignarValor(p3x,b);
-    asignarValor(p3y,h);
-    asignarValor(p4x,b);
-    asignarValor(p14x,b);
-    asignarValor(p15x,b);
-    asignarValor(p9x,b);
-    asignarValor(p15y,h);
-    asignarValor(p16x,h);
-    asignarValor(p16y,h);
-    asignarValor(p17x,h);
-    
-    p4y.disabled = false;
-    p4y.style="border-color: rgb(42, 0, 194)";
-};
-
-// p3x.oninput = ()=>{
-//     igualar(p3x,p4x);
-//     igualar(p3x,p9x);
-//     igualar(p3x,p14x);
-//     igualar(p3x,p15x);
-// };
-
-// #
-p4y.oninput = ()=>{ 
-    asignarValor(p14y, p4y.value);
-    p5x.disabled = false;
-    p5x.style="border-color: rgb(42, 0, 194)";  
-};
-
-//#
-p5x.oninput = ()=>{ 
-        
-        m = distancia(b,0,p5x.value,0);
-
-        asignarValor(p8x,p5x.value);
-        asignarValor(p13x,b+m);
-        asignarValor(p10x,b+m);
-        
-        p5y.disabled = false;
-        p5y.style="border-color: rgb(42, 0, 194)";
-    };
-
-//#    
-p5y.oninput = () =>{ 
-        
-        n = distancia(0,p5y.value,0,p4y.value);
-        tf = distancia(0,p2y.value,0,p5y.value);
-
-        asignarValor(p8y,tf);
-        asignarValor(p9y,tf+n);
-        asignarValor(p10y,tf);
-        asignarValor(p6y,p5y.value);
-        asignarValor(p12y,p5y.value);
-        asignarValor(p13y,p5y.value);
-
-        p6x.disabled = false;
-        p6x.style="border-color: rgb(42, 0, 194)";
-    };
-
-    //#
-p6x.oninput = () =>{
-        
-        tw = distancia(p1x.value,0,p6x.value,0);
-
-        asignarValor(p7x,p6x.value);
-        asignarValor(p7y,tf);
-        asignarValor(p11x,h-tw);
-        asignarValor(p11y,p7y.value);
-        asignarValor(p12x,h-tw);
-        asignarValor(p12y,h-tf);
-
-        dibujar();
-    };    
-
-}else
-{
-p2y.style="";
-p4y.style="";
-p5x.style="";
-p5y.style="";
-p6x.style="";
-
-p4y.disabled = false;
-p5x.disabled = false;
-p5y.disabled = false;
-p6x.disabled = false;
-
-p1x.disabled = false;
-p1y.disabled = false;
-p2x.disabled = false;
-p3x.disabled = false;
-p3y.disabled = false;
-p4x.disabled = false;
-p6y.disabled = false;
-p7x.disabled = false;
-p7y.disabled = false;
-p8x.disabled = false;
-p8y.disabled = false;
-p9x.disabled = false;
-p9y.disabled = false;
-p10x.disabled = false;
-p10y.disabled = false;
-p11x.disabled = false;
-p11y.disabled = false;
-p12x.disabled = false;
-p12y.disabled = false;
-p13x.disabled = false;
-p13y.disabled = false;
-p14x.disabled = false;
-p14y.disabled = false;
-p15x.disabled = false;
-p15y.disabled = false;
-p16x.disabled = false;
-p16y.disabled = false;
-p17x.disabled = false;
-p17y.disabled = false;
-p18x.disabled = false;
-p18y.disabled = false;
-
-    //#
     p2y.oninput = ()=>{ 
+        
+        h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
+        b = h/2;    
+
+        asignarValor(p3x,b);
+        asignarValor(p3y,h);
+        asignarValor(p4x,b);
+        asignarValor(p14x,b);
+        asignarValor(p15x,b);
+        asignarValor(p9x,b);
+        asignarValor(p15y,h);
+        asignarValor(p16x,h);
+        asignarValor(p16y,h);
+        asignarValor(p17x,h);
+
+        p4y.disabled = false;
+        p4y.style="border-color: rgb(42, 0, 194)";
     };
-    //#
+
+    // #
     p4y.oninput = ()=>{ 
+        asignarValor(p14y, p4y.value);
+
+        p5x.disabled = false;
+        p5x.style="border-color: rgb(42, 0, 194)";
+        p2y.disabled = true; 
     };
+
     //#
     p5x.oninput = ()=>{ 
-    };
+            
+            m = distancia(b,0,p5x.value,0);
+
+            asignarValor(p8x,p5x.value);
+            asignarValor(p13x,b+m);
+            asignarValor(p10x,b+m);
+            p5y.disabled = false;
+            p5y.style="border-color: rgb(42, 0, 194)";
+            p4y.disabled = true;
+        };
+
     //#    
-    p5y.oninput = () =>{       
-    };
-    //#
-    p6x.oninput = () =>{   
-    };              
-}
+    p5y.oninput = () =>{ 
+            
+            n = distancia(0,p5y.value,0,p4y.value);
+            tf = distancia(0,p2y.value,0,p5y.value);
+
+            asignarValor(p8y,tf);
+            asignarValor(p9y,tf+n);
+            asignarValor(p10y,tf);
+            asignarValor(p6y,p5y.value);
+            asignarValor(p12y,p5y.value);
+            asignarValor(p13y,p5y.value);
+            p6x.disabled = false;
+            p6x.style="border-color: rgb(42, 0, 194)";
+            p5x.disabled = true;
+        };
+
+        //#
+    p6x.oninput = () =>{
+            
+            tw = distancia(p1x.value,0,p6x.value,0);
+
+            asignarValor(p7x,p6x.value);
+            asignarValor(p7y,tf);
+            asignarValor(p11x,h-tw);
+            asignarValor(p11y,p7y.value);
+            asignarValor(p12x,h-tw);
+            asignarValor(p12y,h-tf);
+            p5y.disabled = true;
+        };    
+    }else
+    {
+        p2y.style="";
+        p4y.style="";
+        p5x.style="";
+        p5y.style="";
+        p6x.style="";
+
+        p4y.disabled = false;
+        p5x.disabled = false;
+        p5y.disabled = false;
+        p6x.disabled = false;
+
+        p1x.disabled = false;
+        p1y.disabled = false;
+        p2x.disabled = false;
+        p3x.disabled = false;
+        p3y.disabled = false;
+        p4x.disabled = false;
+        p6y.disabled = false;
+        p7x.disabled = false;
+        p7y.disabled = false;
+        p8x.disabled = false;
+        p8y.disabled = false;
+        p9x.disabled = false;
+        p9y.disabled = false;
+        p10x.disabled = false;
+        p10y.disabled = false;
+        p11x.disabled = false;
+        p11y.disabled = false;
+        p12x.disabled = false;
+        p12y.disabled = false;
+        p13x.disabled = false;
+        p13y.disabled = false;
+        p14x.disabled = false;
+        p14y.disabled = false;
+        p15x.disabled = false;
+        p15y.disabled = false;
+        p16x.disabled = false;
+        p16y.disabled = false;
+        p17x.disabled = false;
+        p17y.disabled = false;
+        p18x.disabled = false;
+        p18y.disabled = false;
+
+            //#
+            p2y.oninput = ()=>{ 
+            };
+            //#
+            p4y.oninput = ()=>{ 
+            };
+            //#
+            p5x.oninput = ()=>{ 
+            };
+            //#    
+            p5y.oninput = () =>{       
+            };
+            //#
+            p6x.oninput = () =>{   
+            };              
+    }
  
 }
 
-     
 
-const miX = document.querySelector("#miX");
-const miY = document.querySelector("#miY");
-const centroideX = document.querySelector("#centroideX");
-const centroideY = document.querySelector("#centroideY");
-
-function responder(cX,cY,momentoInerciaX,momentoInerciaY){
-    centroideX.innerHTML = `Coordenada de centroide en X:  ${cX} cm`;
-    centroideY.innerHTML = `Coordenada de centroide en Y:  ${cY} cm`;
-    miX.innerHTML = `Momento de inercia en X: ${momentoInerciaX} cm4`;
-    miY.innerHTML = `Momento de inercia en Y: ${momentoInerciaY} cm4`;
-
-}
 
 const limpiar = document.querySelector("#btnLimpiar");
 
@@ -352,10 +322,10 @@ function limpiarInputs(){
     p18x.value = null;
     p18y.value = null;
 
-    igualar(p1x,p18x);
-    igualar(p1y,p18y);
-    igualar(p1x,p2x);
-    igualar(p1y,p17y);
+    asignarValor(p18x,p1x.value);
+    asignarValor(p18y,p1x.value);
+    asignarValor(p2x,p1x.value);
+    asignarValor(p17y,p1x.value);
 
     borrarGráfica();
     responder(0,0,0,0);
@@ -379,7 +349,6 @@ let espacioInicial = 0;
         ctx.clearRect(0,0,500,500)
     }
 }
-
 
   /*      Dibujar centroide     */
   function dibujarCentroide(x,y){
@@ -406,10 +375,8 @@ function dibujar() {
 
         let proporcion = 20;
 
-      // Sección rellenada 
       ctx.beginPath();
       ctx.fillStyle = "#808080"; 
-      
       ctx.lineTo(espacioInicial + (p2x.value*proporcion), 500- p2y.value*proporcion);
       ctx.lineTo(espacioInicial + (p3x.value*proporcion), 500- p3y.value*proporcion);
       ctx.lineTo(espacioInicial + (p4x.value*proporcion), 500- p4y.value*proporcion);
@@ -427,7 +394,6 @@ function dibujar() {
       ctx.lineTo(espacioInicial + (p16x.value*proporcion), 500- p16y.value*proporcion);
       ctx.lineTo(espacioInicial + (p17x.value*proporcion), 500- p17y.value*proporcion);
       ctx.lineTo(espacioInicial + (p18x.value*proporcion), 500- p18y.value*proporcion);
-      
       ctx.fill();
       ctx.closePath();
 
@@ -435,6 +401,18 @@ function dibujar() {
   }
 
 /* ----------------------------------------------------------------------------------------------------------*/
+
+const miX = document.querySelector("#miX");
+const miY = document.querySelector("#miY");
+const centroideX = document.querySelector("#centroideX");
+const centroideY = document.querySelector("#centroideY");
+
+function responder(cX,cY,momentoInerciaX,momentoInerciaY){
+    centroideX.innerHTML = `Coordenada de centroide en X:  ${cX} cm`;
+    centroideY.innerHTML = `Coordenada de centroide en Y:  ${cY} cm`;
+    miX.innerHTML = `Momento de inercia en X: ${momentoInerciaX} cm4`;
+    miY.innerHTML = `Momento de inercia en Y: ${momentoInerciaY} cm4`;
+}
 
 /*      Cálculos matemáticos     */
 
@@ -465,7 +443,6 @@ function miYTriangulo(base,altura){
 const calcular = document.querySelector("#btnCalcular");
 calcular.addEventListener("click", (event)=>{ 
     
-
 /* Distancias nombradas */
 
 let h = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
@@ -476,7 +453,7 @@ let m = distancia(b,0,p5x.value,0);
 let n = distancia(0,p5y.value,0,p4y.value);
 
 if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
-    console.log("Valores de Distancias:")
+    //console.log("Valores de Distancias:")
     console.table({
         h:h,
         b:b,
@@ -487,7 +464,6 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
     });
 
     /*    Formas simples    */
-
     let formas_simples = [
         // Forma 1
         {
@@ -594,7 +570,7 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
 
     /* Calcular centroide total de la forma compuesta */
 
-    console.log("Datos de Formas Simples:")
+    //console.log("Datos de Formas Simples:")
     console.table(formas_simples);
 
     function calcularCentroideX(formas){
@@ -636,8 +612,8 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
     let forma_compuesta = {
         cx: calcularCentroideX(formas_simples),
         cy: calcularCentroideY(formas_simples),
-        mix: 0, // coming soon
-        miy: 0, // coming soon
+        mix: 0, // se calculará con la función calcularMIX()
+        miy: 0, // se calculará con la función calcularMIY()
     };
 
         forma_compuesta.mix = calcularMIX(formas_simples);
@@ -653,7 +629,6 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
     }
     
 }
-
 }, false);
 
 /* ----------------------------------------------------------------------------------------------------------*/
