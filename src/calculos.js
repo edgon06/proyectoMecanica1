@@ -276,10 +276,7 @@ if(asistencia.checked == true)
  
 }
 
-
-
 const limpiar = document.querySelector("#btnLimpiar");
-
 function limpiarInputs(){
 
     p1x.value = 0;
@@ -318,12 +315,10 @@ function limpiarInputs(){
     p17y.value = null;
     p18x.value = null;
     p18y.value = null;
-
     asignarValor(p18x,p1x.value);
     asignarValor(p18y,p1x.value);
     asignarValor(p2x,p1x.value);
     asignarValor(p17y,p1x.value);
-
     borrarGráfica();
     responder(0,0,0,0);
 }
@@ -600,12 +595,8 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
 
         function calcularMIY(formas){ 
             let Iy = 0;
-            let debug = 0;
             formas.forEach(forma => {
-                Iy += forma.miy + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area);
-                debug++;
-                console.warn(Math.abs(forma.cx-forma_compuesta.cx),2);
-                console.error(" Forma " + debug + " = " +(forma.miy + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area)));
+                Iy += forma.miy + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area);        
             });
             return Iy; 
         }
@@ -616,9 +607,9 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
         mix: 0, // se calculará con la función calcularMIX()
         miy: 0, // se calculará con la función calcularMIY()
     };
-
         forma_compuesta.mix = calcularMIX(formas_simples);
         forma_compuesta.miy = calcularMIY(formas_simples);
+
         responder(forma_compuesta.cx.toFixed(2), forma_compuesta.cy.toFixed(2), forma_compuesta.mix.toFixed(2), forma_compuesta.miy.toFixed(2));
         dibujar();
         dibujarCentroide(forma_compuesta.cx,forma_compuesta.cy);
@@ -628,7 +619,6 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
         asistencia.onclick();
         limpiarInputs();
     }
-    
 }
 }, false);
 
