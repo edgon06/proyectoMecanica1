@@ -71,9 +71,6 @@ const p17y = document.querySelector("#P17y");
 const p18x = document.querySelector("#P18x");
 const p18y = document.querySelector("#P18y");
 
-
-/*    Eventos para asistencia al introducir datos para mantener la proporción   */
-
 function asignarValor(input, valor){
     input.value = valor;
 }
@@ -86,14 +83,14 @@ asignarValor(p18y,p1x.value);
 asignarValor(p2x,p1x.value);
 asignarValor(p17y,p1x.value);
 
-        /* Distancias nombradas */
+/* Distancias nombradas */
 
-    let h;  // = distancia(p1x.value,p1y.value,p2x.value,p2y.value);
-    let b;  // = h/2;    //distancia(p2x.value,p2y.value,p3x.value,p3y.value);
-    let tw; // = distancia(p1x.value,0,p6x.value,0);
-    let tf; // = distancia(0,p2y.value,0,p5y.value);
-    let m;  // = distancia(b,0,p5x.value,0);
-    let n;  // = distancia(0,p5y.value,0,p4y.value);
+let h;  
+let b;  
+let tw; 
+let tf; 
+let m;  
+let n;  
 
 const asistencia = document.querySelector("#asistencia");
 asistencia.onclick = ()=> {
@@ -141,7 +138,7 @@ if(asistencia.checked == true)
     p5y.disabled = true;
     p6x.disabled = true;
 
-    //  Evento cuando elemento pierde el focus: focusout
+    /*    Eventos para asistencia al introducir datos para mantener la proporción   */
 
     p2y.oninput = ()=>{ 
         
@@ -561,7 +558,7 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
             base: Math.abs(b-tw),
             altura: tf,
             area : Math.abs(b-tw) * tf,
-            cx: Math.abs(b-tw)/2,
+            cx: tw + Math.abs(b-tw)/2,
             cy: tf/2,
             mix: miXRectangulo(Math.abs(b-tw),tf),
             miy: miYRectangulo(Math.abs(b-tw),tf)
@@ -603,8 +600,12 @@ if((2*m)<((2*b)-(2*tw))&&((2*n)<(h-(2*tf)))){
 
         function calcularMIY(formas){ 
             let Iy = 0;
+            let debug = 0;
             formas.forEach(forma => {
-                Iy += forma.mix + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area);
+                Iy += forma.miy + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area);
+                debug++;
+                console.warn(Math.abs(forma.cx-forma_compuesta.cx),2);
+                console.error(" Forma " + debug + " = " +(forma.miy + (Math.pow(Math.abs(forma.cx-forma_compuesta.cx),2)*forma.area)));
             });
             return Iy; 
         }
