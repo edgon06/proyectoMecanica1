@@ -228,6 +228,7 @@ if(asistencia.checked == true)
         p1x.disabled = false;
         p1y.disabled = false;
         p2x.disabled = false;
+        p2y.disabled = false;
         p3x.disabled = false;
         p3y.disabled = false;
         p4x.disabled = false;
